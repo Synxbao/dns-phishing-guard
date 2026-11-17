@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Website đã bị chặn</title>
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><div><strong>DNS PHISHING GUARD</strong><small>ACTIVE DEFENSE · BLOCK PAGE</small></div></div>
+    <span class="protection-state"><i></i> Protection active</span>
+  </header>
+
+  <main class="shell" role="alertdialog" aria-labelledby="title">
+    <section class="visual" aria-hidden="true">
+      <div class="warning-orbit"><div class="shield">🛡️</div></div>
+      <span class="visual-code">BLOCK / 01</span>
+      <div class="signal-lines"><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="content">
+      <p class="eyebrow">NAVIGATION INTERCEPTED</p>
+      <h1 id="title">Website đã bị chặn</h1>
+      <p class="lead">Domain này nằm trong blacklist đã được xác nhận. DNS Phishing Guard đã dừng điều hướng trước khi nội dung trang được tải.</p>
+
+      <div class="domain-box">
+        <span>DOMAIN BỊ CHẶN</span>
+        <strong id="domain">Đang xác định…</strong>
+      </div>
+
+      <div class="telemetry" aria-label="Trạng thái bảo vệ">
+        <div><span>Danh sách</span><b>BLACKLIST</b><small>Đã xác nhận</small></div>
+        <div><span>Điều hướng</span><b>BLOCKED</b><small>Trước khi tải trang</small></div>
+        <div><span>Phạm vi</span><b>THIS TAB</b><small id="blockedAt">Phiên hiện tại</small></div>
+      </div>
+
+      <section class="safety-steps">
+        <h2>Giữ an toàn ngay lúc này</h2>
+        <ul>
+          <li><span>01</span>Không nhập mật khẩu, OTP hoặc thông tin thanh toán.</li>
+          <li><span>02</span>Không tải hoặc mở tệp từ địa chỉ này.</li>
+          <li><span>03</span>Mở dịch vụ từ bookmark hoặc tự gõ địa chỉ chính thức.</li>
+        </ul>
+      </section>
+
+      <div class="actions">
+        <button id="backBtn" class="primary">← Quay lại nơi an toàn</button>
+        <button id="allowBtn" class="danger-bypass">Tôi hiểu rủi ro · cho phép một lần</button>
+      </div>
+      <section class="allow-confirm hidden" id="allowConfirm" aria-labelledby="allowConfirmTitle">
+        <p class="confirm-kicker">XÁC NHẬN VƯỢT CẢNH BÁO</p>
+        <h2 id="allowConfirmTitle">Gõ đúng domain bị chặn</h2>
+        <p>Chỉ tiếp tục khi bạn đã xác minh địa chỉ bằng một kênh chính thức.</p>
+        <code id="confirmDomain">—</code>
+        <input id="confirmationInput" type="text" inputmode="url" autocomplete="off" spellcheck="false" aria-label="Nhập lại domain bị chặn" placeholder="Nhập domain ở trên">
+        <div class="confirm-actions">
+          <button id="cancelAllowBtn">Hủy</button>
+          <button id="confirmAllowBtn" disabled>Xác nhận cho phép một lần</button>
+        </div>
+      </section>
+      <p id="status" class="status" aria-live="polite"></p>
+      <p class="note">Cho phép một lần chỉ áp dụng cho tab hiện tại và không xóa domain khỏi blacklist. Hành động này có thể cần PIN khi Chế độ trẻ em đang bật.</p>
+    </section>
+  </main>
+
+  <script src="blocked.js?v=2.7.5"></script>
+</body>
+</html>

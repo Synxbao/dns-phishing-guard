@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare-training-sources": "node training/prepare-sources.mjs",
+    "build-training": "node training/build-dataset.mjs",
+    "train-model": "node training/train-model.mjs",
+    "pipeline-training": "npm run build-training && npm run train-model",
+    "explain-url": "node training/explain-prediction.mjs",
+    "test": "node tests/release.test.mjs",
+    "evaluate": "node tools/evaluate-release.mjs",
+    "probe:adversarial": "node evaluation/adversarial-probe.mjs",
+    "validate": "npm test && npm run evaluate && npm run probe:adversarial"
+  }
+}

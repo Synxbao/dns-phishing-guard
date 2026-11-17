@@ -1,0 +1,250 @@
+[
+  {
+    "id": "safe-hopamchuan-song",
+    "label": "SAFE",
+    "url": "https://hopamchuan.com/song/57692/muon-em-la-cua-rieng-minh/?s=1",
+    "knownDomain": true,
+    "ageDays": 4843
+  },
+  {
+    "id": "safe-google-oauth",
+    "label": "SAFE",
+    "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=demo.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffeid.fpt.edu.vn%2Fsignin-google&response_type=code&scope=openid%20email",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-microsoft-oauth",
+    "label": "SAFE",
+    "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=demo&redirect_uri=https%3A%2F%2Fexample.edu.vn%2Fcallback&response_type=code&scope=openid",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-apple-oauth",
+    "label": "SAFE",
+    "url": "https://appleid.apple.com/auth/authorize?client_id=com.example.web&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&response_type=code&scope=name%20email",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-bing-search",
+    "label": "SAFE",
+    "url": "https://www.bing.com/search?q=phishing+awareness&utm_source=training&cvid=demo123",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-microsoft-product",
+    "label": "SAFE",
+    "url": "https://www.microsoft.com/vi-vn/microsoft-365?rtc=1",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-chess-game",
+    "label": "SAFE",
+    "url": "https://www.chess.com/play/online/new?opponent=demo-user",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-github-login",
+    "label": "SAFE",
+    "url": "https://github.com/login?return_to=%2Fsettings%2Fsecurity",
+    "knownDomain": true,
+    "ageDays": 9000
+  },
+  {
+    "id": "safe-cloudflare-dashboard",
+    "label": "SAFE",
+    "url": "https://dash.cloudflare.com/login?redirect_url=%2Fexample.com%2Fsecurity",
+    "knownDomain": true,
+    "ageDays": 5000
+  },
+  {
+    "id": "safe-fpt-login",
+    "label": "SAFE",
+    "url": "https://feid.fpt.edu.vn/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dfap",
+    "knownDomain": true,
+    "ageDays": 3000
+  },
+  {
+    "id": "safe-letterboxd",
+    "label": "SAFE",
+    "url": "https://letterboxd.com/",
+    "knownDomain": true,
+    "ageDays": 5000
+  },
+  {
+    "id": "phish-steam-brand-suffix",
+    "label": "PHISHING",
+    "url": "https://steamcommunity.asia/76482b527f0700555252547e57535a5765510151",
+    "ageDays": null
+  },
+  {
+    "id": "phish-paypal-lookalike",
+    "label": "PHISHING",
+    "url": "http://secure-paypal-account-verify.xyz/login/update-payment",
+    "ageDays": 3
+  },
+  {
+    "id": "phish-microsoft-lookalike",
+    "label": "PHISHING",
+    "url": "http://microsoft-login-security-check.top/account/verify",
+    "ageDays": 2
+  },
+  {
+    "id": "phish-google-lookalike",
+    "label": "PHISHING",
+    "url": "https://accounts-google-security-alert.click/signin/confirm-password",
+    "ageDays": 1
+  },
+  {
+    "id": "phish-bank-ip",
+    "label": "PHISHING",
+    "url": "http://185.199.88.12/banking/login/verify-account",
+    "ageDays": 1
+  },
+  {
+    "id": "phish-at-symbol",
+    "label": "PHISHING",
+    "url": "http://paypal.com@secure-wallet-update.xyz/login",
+    "ageDays": 4
+  },
+  {
+    "id": "phish-punycode",
+    "label": "PHISHING",
+    "url": "https://xn--pple-43d.com/account/verify",
+    "ageDays": 5
+  },
+  {
+    "id": "phish-coinbase-recovery",
+    "label": "PHISHING",
+    "url": "https://recoveries-coinbase.com/login/restore-wallet",
+    "ageDays": 7
+  },
+  {
+    "id": "phish-discord-nitro",
+    "label": "PHISHING",
+    "url": "https://grlb-free.xyz/discord/nitro/login",
+    "ageDays": 2
+  },
+  {
+    "id": "paired-garena-topup-official",
+    "pairId": "garena-topup-official-vs-impostor",
+    "pairRole": "official",
+    "label": "SAFE",
+    "expectedVerdict": "SAFE",
+    "url": "https://napthe.vn/app/32837/buy/0",
+    "knownDomain": false,
+    "ageDays": 3000,
+    "scenario": "Cổng nạp Garena đã được xác minh từ trang do Garena sở hữu; nội dung và trường nhập giống fixture giả mạo.",
+    "pageSignals": {
+      "prepaidValueHitCount": 3,
+      "gameTopupHitCount": 4,
+      "unofficialCommerceHitCount": 0,
+      "promoClaimHitCount": 0,
+      "commerceActionCount": 2,
+      "prepaidCodeInputCount": 2,
+      "gameAccountInputCount": 1,
+      "commerceBrandMismatch": false,
+      "commerceBrandName": "Garena",
+      "officialClaim": true,
+      "officialClaimHitCount": 1,
+      "officialClaimMismatch": false,
+      "officialClaimBrandName": null,
+      "gameMarketplaceHitCount": 0,
+      "gameTransactionHitCount": 2,
+      "gameOffPlatformContactCount": 0,
+      "gameCommerceActionCount": 2,
+      "gameCommerceBrandMismatch": false,
+      "gameCommerceOfficialBrand": true,
+      "gameCommerceOfficialClaimMismatch": false,
+      "gameCommerceBrandName": "Garena",
+      "contentSamples": {
+        "scamCommerce": ["mã thẻ", "số seri", "nạp game", "id game"],
+        "gameCommerce": ["nạp tiền", "thanh toán"]
+      }
+    },
+    "expectedContentLevel": "NONE",
+    "expectedSafeDisplayState": "CONFIDENT",
+    "expectedEvidenceRiskState": "DETERMINED",
+    "minimumEvidenceScore": 45,
+    "expectedVerifiedBrandEvidenceEligible": true
+  },
+  {
+    "id": "paired-garena-topup-impostor",
+    "pairId": "garena-topup-official-vs-impostor",
+    "pairRole": "impostor",
+    "label": "PHISHING",
+    "expectedVerdict": "PHISHING",
+    "url": "https://napthevn.example/app/32837/buy/0",
+    "knownDomain": false,
+    "ageDays": 5,
+    "scenario": "Domain reserved gần giống napthe.vn, tự nhận đối tác chính thức Garena và thu ID game cùng mã thẻ.",
+    "pageSignals": {
+      "prepaidValueHitCount": 3,
+      "gameTopupHitCount": 4,
+      "unofficialCommerceHitCount": 0,
+      "promoClaimHitCount": 0,
+      "commerceActionCount": 2,
+      "prepaidCodeInputCount": 2,
+      "gameAccountInputCount": 1,
+      "commerceBrandMismatch": true,
+      "commerceBrandName": "Garena",
+      "officialClaim": true,
+      "officialClaimHitCount": 1,
+      "officialClaimMismatch": true,
+      "officialClaimBrandName": "Garena",
+      "gameMarketplaceHitCount": 0,
+      "gameTransactionHitCount": 2,
+      "gameOffPlatformContactCount": 0,
+      "gameCommerceActionCount": 2,
+      "gameCommerceBrandMismatch": true,
+      "gameCommerceOfficialBrand": false,
+      "gameCommerceOfficialClaimMismatch": true,
+      "gameCommerceBrandName": "Garena",
+      "contentSamples": {
+        "scamCommerce": ["mã thẻ", "số seri", "nạp game", "id game"],
+        "gameCommerce": ["nạp tiền", "thanh toán"]
+      }
+    },
+    "expectedContentLevel": "HIGH",
+    "expectedContentCategory": "SCAM_COMMERCE",
+    "minimumContentScore": 78,
+    "expectedVerifiedBrandEvidenceEligible": false
+  },
+  {
+    "id": "content-gambling-first-party",
+    "kind": "CONTENT_SAFETY",
+    "expectedCategory": "GAMBLING",
+    "minimumLevel": "HIGH",
+    "pageSignals": {
+      "gamblingCoreHitCount": 4,
+      "gamblingActionHitCount": 2,
+      "gamblingPaymentHitCount": 2,
+      "gamblingTitleHit": true,
+      "contentSamples": {
+        "gambling": ["casino", "sportsbook", "bet now", "nap tien"]
+      }
+    }
+  },
+  {
+    "id": "content-sexual-services-first-party",
+    "kind": "CONTENT_SAFETY",
+    "expectedCategory": "SEXUAL_SERVICES",
+    "minimumLevel": "HIGH",
+    "pageSignals": {
+      "sexualServiceDirectHitCount": 2,
+      "sexualServiceContextHitCount": 3,
+      "sexualServiceTransactionHitCount": 3,
+      "sexualServiceContactCount": 3,
+      "sexualServiceProfileCount": 6,
+      "sexualServiceTitleHit": true,
+      "contentSamples": {
+        "sexualServices": ["gai goi", "escort service", "hen ho 18+", "dat lich"]
+      }
+    }
+  }
+]

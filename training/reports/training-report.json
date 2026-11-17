@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-08-09T21:52:42.404Z",
+  "dataset": {
+    "total": 4000,
+    "safe": 2000,
+    "malicious": 2000,
+    "uniqueUrls": 4000,
+    "uniqueRegistrableDomains": 2976,
+    "benignCounterfactual": 800,
+    "hardNegativeGenerated": 479,
+    "sourceCounts": {
+      "user-benign-1000-counterfactual": 400,
+      "user-benign-1000": 600,
+      "tranco-top-sites-counterfactual": 400,
+      "tranco-top-sites": 600,
+      "user-phishing-1000": 987,
+      "openphish-2026-08-10": 270,
+      "urlhaus-recent-2026-08-10": 743
+    },
+    "sourceTypeCounts": {
+      "benign-counterfactual": 800,
+      "benign-candidate": 1200,
+      "phishing": 1257,
+      "malware-download": 743
+    }
+  },
+  "splits": {
+    "train": {
+      "total": 2785,
+      "safe": 1400,
+      "malicious": 1385,
+      "uniqueDomains": 2106
+    },
+    "calibration": {
+      "total": 398,
+      "safe": 200,
+      "malicious": 198,
+      "uniqueDomains": 308
+    },
+    "threshold": {
+      "total": 419,
+      "safe": 200,
+      "malicious": 219,
+      "uniqueDomains": 253
+    },
+    "test": {
+      "total": 398,
+      "safe": 200,
+      "malicious": 198,
+      "uniqueDomains": 309
+    }
+  },
+  "domainLeakage": false,
+  "hardNegativeTrainingCount": 479,
+  "hardNegativeWeight": 2,
+  "augmentedTrainCount": 3743,
+  "selectedModel": {
+    "name": "Locally trained Logistic Regression with Platt calibration",
+    "modelVersion": "url-logistic-5.0.0",
+    "threshold": 0.59,
+    "calibration": {
+      "slope": 1.0116712,
+      "intercept": 0.0684239
+    },
+    "thresholdSelection": {
+      "threshold": 0.59,
+      "tp": 184,
+      "tn": 194,
+      "fp": 6,
+      "fn": 35,
+      "accuracy": 0.902148,
+      "precision": 0.9684211,
+      "recall": 0.8401826,
+      "f1": 0.8997555,
+      "specificity": 0.97,
+      "falsePositiveRate": 0.03,
+      "falseNegativeRate": 0.1598174,
+      "rocAuc": 0.9822374,
+      "averagePrecision": 0.9828202,
+      "brierScore": 0.0594408
+    },
+    "independentTest": {
+      "threshold": 0.59,
+      "tp": 185,
+      "tn": 199,
+      "fp": 1,
+      "fn": 13,
+      "accuracy": 0.9648241,
+      "precision": 0.9946237,
+      "recall": 0.9343434,
+      "f1": 0.9635417,
+      "specificity": 0.995,
+      "falsePositiveRate": 0.005,
+      "falseNegativeRate": 0.0656566,
+      "rocAuc": 0.9910606,
+      "averagePrecision": 0.9929269,
+      "brierScore": 0.0271986
+    },
+    "testCategoryMetrics": {
+      "phishing": {
+        "threshold": 0.59,
+        "tp": 116,
+        "tn": 0,
+        "fp": 0,
+        "fn": 13,
+        "accuracy": 0.8992248,
+        "precision": 1,
+        "recall": 0.8992248,
+        "f1": 0.9469388,
+        "specificity": 0,
+        "falsePositiveRate": 0,
+        "falseNegativeRate": 0.1007752,
+        "rocAuc": 0,
+        "averagePrecision": 1,
+        "brierScore": 0.067352
+      },
+      "benign-candidate": {
+        "threshold": 0.59,
+        "tp": 0,
+        "tn": 111,
+        "fp": 1,
+        "fn": 0,
+        "accuracy": 0.9910714,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "specificity": 0.9910714,
+        "falsePositiveRate": 0.0089286,
+        "falseNegativeRate": 0,
+        "rocAuc": 0,
+        "averagePrecision": 0,
+        "brierScore": 0.0189467
+      },
+      "malware-download": {
+        "threshold": 0.59,
+        "tp": 69,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1,
+        "precision": 1,
+        "recall": 1,
+        "f1": 1,
+        "specificity": 0,
+        "falsePositiveRate": 0,
+        "falseNegativeRate": 0,
+        "rocAuc": 0,
+        "averagePrecision": 1,
+        "brierScore": 0.0000113
+      },
+      "benign-counterfactual": {
+        "threshold": 0.59,
+        "tp": 0,
+        "tn": 88,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "specificity": 1,
+        "falsePositiveRate": 0,
+        "falseNegativeRate": 0,
+        "rocAuc": 0,
+        "averagePrecision": 0,
+        "brierScore": 0.0001573
+      }
+    }
+  },
+  "limitations": [
+    "URL sạch là benign candidates ghép từ danh sách người dùng và Tranco, không phải chứng nhận an toàn tuyệt đối.",
+    "Một phần benign dùng path/query counterfactual có ghi nhãn rõ để giảm source bias của URL trang chủ; đây không phải quan sát lưu lượng production.",
+    "Mẫu độc hại kết hợp phishing và malware-download nên tỷ lệ nhóm dữ liệu khác lưu lượng duyệt web bình thường.",
+    "Đặc trưng riêng của từng nguồn và temporal drift có thể làm metrics offline cao hơn thực tế; vẫn cần temporal holdout mới.",
+    "Model URL không thay thế brand mismatch, RDAP, threat intelligence, redirect hoặc phân tích hành vi trang."
+  ]
+}

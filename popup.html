@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DNS Phishing Guard</title>
+  <link rel="stylesheet" href="popup.css?v=2.7.5">
+</head>
+<body>
+  <section id="childShell" class="hidden child-wrap">
+    <button class="language-control child-language" id="childLanguageBtn" type="button" aria-label="Switch interface to English" data-no-translate>EN</button>
+    <div class="child-card" id="childCard">
+      <div class="child-orbit" aria-hidden="true"><div class="mascot">🛡️</div></div>
+      <p class="child-kicker">KHIÊN NHỎ · BẢO VỆ CHỦ ĐỘNG</p>
+      <div class="child-label" id="childLabel">ĐANG KIỂM TRA…</div>
+      <p class="child-message" id="childMessage">Khiên Nhỏ đang kiểm tra trang.</p>
+      <p class="child-advice" id="childAdvice">Con hãy chờ một chút.</p>
+      <div class="child-domain" id="childDomain">—</div>
+      <div class="child-buttons">
+        <button class="back hidden" id="childBackBtn">← QUAY LẠI NƠI AN TOÀN</button>
+        <button id="childSpeakBtn">🔊 Nghe hướng dẫn</button>
+        <button id="childRecheckBtn">Quét lại trang</button>
+        <button class="adult" id="parentUnlockBtn">Dành cho người lớn 🔒</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="simpleShell" class="hidden simple-shell">
+    <header class="simple-header">
+      <div class="simple-brand">
+        <span class="simple-shield" aria-hidden="true">◆</span>
+        <div><b>DNS Phishing Guard</b><small><i id="simpleStatusDot"></i> Bảo vệ đang hoạt động</small></div>
+      </div>
+      <div class="simple-header-actions">
+        <button class="language-control" id="simpleLanguageBtn" type="button" aria-label="Switch interface to English" data-no-translate>EN</button>
+        <button class="simple-toggle" id="simpleToggleBtn" aria-label="Bật hoặc tắt bảo vệ">Đang BẬT</button>
+      </div>
+    </header>
+
+    <main class="simple-main">
+      <article class="simple-verdict safe" id="simpleVerdictCard">
+        <div class="simple-context-row">
+          <span>TRANG ĐANG MỞ</span>
+          <b id="simpleRiskBadge">ĐANG KIỂM TRA</b>
+        </div>
+        <div class="simple-outcome">
+          <div class="simple-outcome-icon" id="simpleOutcomeIcon" aria-hidden="true">⌁</div>
+          <div><span id="simpleOutcomeKicker">ĐANG PHÂN TÍCH</span><h1 id="simpleOutcomeTitle">Chờ kết quả bảo vệ</h1></div>
+        </div>
+        <div class="simple-domain" id="simpleDomain">Chưa có dữ liệu</div>
+        <p class="simple-advice" id="simpleAdvice">Mở một website để extension bắt đầu kiểm tra.</p>
+        <ul class="simple-reasons" id="simpleReasons"><li>Chưa có tín hiệu để hiển thị.</li></ul>
+        <div class="simple-score-strip">
+          <div><span>Rủi ro</span><b id="simpleScore">—</b></div>
+          <div><span>Bằng chứng</span><b id="simpleConfidence">—</b></div>
+          <div><span>Phạm vi</span><b id="simpleCoverage">—</b></div>
+        </div>
+        <div class="simple-primary-actions">
+          <button class="simple-primary" id="simplePrimaryBtn">Quét lại trang</button>
+          <button class="simple-feedback" id="simpleFeedbackBtn">Kết quả này có vẻ báo nhầm</button>
+        </div>
+        <p class="simple-feedback-status" id="simpleFeedbackStatus" aria-live="polite"></p>
+      </article>
+
+      <article class="simple-link-card">
+        <div class="simple-section-title"><div><span>LINK BẠN ĐANG KIỂM TRA</span><h2>Kiểm tra trước khi mở</h2></div><span aria-hidden="true">↗</span></div>
+        <p>Dán link để kiểm tra cấu trúc, chuyển hướng và phản hồi giới hạn mà không chạy mã trang hay gửi cookie.</p>
+        <form class="simple-link-form" id="simpleLinkLabForm">
+          <input id="simpleLinkLabInput" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://example.com/link-can-kiem-tra" aria-label="Link bạn đang kiểm tra">
+          <button id="simpleLinkLabScanBtn" type="submit">Kiểm tra link</button>
+        </form>
+        <p class="simple-link-status" id="simpleLinkLabStatus">Chưa kết nối tới URL nào.</p>
+        <div class="simple-link-result hidden" id="simpleLinkLabResult" tabindex="-1">
+          <div><span id="simpleLinkLabBadge">—</span><b id="simpleLinkLabScore">—</b></div>
+          <strong id="simpleLinkLabTitle">—</strong>
+          <small id="simpleLinkLabTarget">—</small>
+          <ul id="simpleLinkLabReasons"></ul>
+          <button id="simpleLinkLabPreviewBtn" type="button" disabled>Mở Safe Preview</button>
+        </div>
+      </article>
+
+      <button class="technical-entry" id="technicalModeBtn">Xem chi tiết kỹ thuật →</button>
+    </main>
+
+    <footer class="simple-footer"><span>v2.7.5</span><span>Dữ liệu phân tích lưu cục bộ</span></footer>
+  </section>
+
+  <section id="advancedShell">
+    <header class="app-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span></span></div>
+        <div>
+          <div class="brand-name">DNS PHISHING GUARD</div>
+          <div class="brand-meta"><span class="dot" id="statusDot"></span> ACTIVE DEFENSE <span class="edition">TECHNICAL</span></div>
+        </div>
+      </div>
+      <div class="header-actions"><button class="language-control" id="technicalLanguageBtn" type="button" aria-label="Switch interface to English" data-no-translate>EN</button><button class="mode-link" id="simpleModeBtn">Chế độ đơn giản</button><button class="toggle" id="toggleBtn" aria-label="Bật hoặc tắt bảo vệ">...</button></div>
+    </header>
+
+    <nav class="tabs" aria-label="Điều hướng chính">
+      <button class="tab active" data-view="status"><span class="tab-glyph">◉</span><span>Trạng thái</span></button>
+      <button class="tab" data-view="history"><span class="tab-glyph">↺</span><span>Lịch sử</span></button>
+      <button class="tab" data-view="stats"><span class="tab-glyph">▥</span><span>Thông số</span></button>
+      <button class="tab" data-view="audit"><span class="tab-glyph">⌁</span><span>Tiện ích</span></button>
+      <button class="tab" data-view="settings"><span class="tab-glyph">⚙</span><span>Cài đặt</span></button>
+    </nav>
+
+    <main>
+      <section class="view active" id="view-status">
+        <article class="card status-hero reveal" style="--delay:0">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="topline hero-topline">
+            <div class="domain-wrap">
+              <span class="eyebrow">LIVE SITE ANALYSIS</span>
+              <span class="domain" id="domain">—</span>
+              <span class="scan-freshness" id="scanFreshness">Đang chờ dữ liệu quét</span>
+            </div>
+            <span class="pill safe" id="riskBadge">—</span>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="risk-dial" id="riskDial" style="--score-angle:0deg;--risk-color:var(--safe)">
+              <div class="risk-dial-core">
+                <span>RISK</span>
+                <b id="score">—</b>
+                <small id="scoreUnit">/ 100</small>
+              </div>
+            </div>
+            <div class="hero-copy">
+              <span class="hero-label">KẾT LUẬN HYBRID</span>
+              <h1 id="riskSummary">Đang tổng hợp tín hiệu</h1>
+              <p>Điểm cuối kết hợp uy tín domain, cấu trúc URL, ML, chuyển hướng và hành vi trên trang.</p>
+              <div class="confidence-line">
+                <div class="confidence-heading"><span>Chất lượng bằng chứng</span><b id="confidence">—</b></div>
+                <div class="track confidence-track"><div class="fill" id="confidenceFill"></div></div>
+              </div>
+              <div class="track score-track" aria-hidden="true"><div class="fill" id="scoreFill"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card link-lab-card reveal" style="--delay:1">
+          <div class="section-heading compact">
+            <div><span class="eyebrow">PRE-ACCESS SCANNER</span><h2>Link Lab</h2></div>
+            <span class="lab-shield" aria-hidden="true">⌁</span>
+          </div>
+          <p class="link-lab-copy">Dán link để quét URL, RDAP, ML, redirect và tối đa 64 KiB đầu mà không chạy mã trang hay gửi cookie. Probe vẫn kết nối tới website nên có thể làm lộ IP.</p>
+          <form class="link-lab-form" id="linkLabForm">
+            <input id="linkLabInput" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://example.com/link-can-kiem-tra" aria-label="URL cần kiểm tra">
+            <button class="action primary" id="linkLabScanBtn" type="submit">Quét trước</button>
+          </form>
+          <p class="link-lab-status" id="linkLabStatus">Chưa có kết nối tới URL nào.</p>
+          <div class="link-lab-result hidden" id="linkLabResult">
+            <div class="link-result-head">
+              <div><span>KẾT QUẢ PREFLIGHT</span><b id="linkLabFinalUrl">—</b></div>
+              <span class="pill safe" id="linkLabRiskBadge">—</span>
+            </div>
+            <div class="link-result-metrics">
+              <div><span>Risk</span><b id="linkLabRiskScore">—</b></div>
+              <div><span>Bằng chứng</span><b id="linkLabConfidence">—</b></div>
+              <div><span>HTTP</span><b id="linkLabHttp">—</b></div>
+              <div><span>Redirect</span><b id="linkLabRedirects">—</b></div>
+            </div>
+            <div class="link-download-state"><span>Tải tệp / tự điều hướng</span><b id="linkLabDownload">—</b><small id="linkLabSignals">—</small></div>
+            <ul class="link-lab-reasons" id="linkLabReasons"></ul>
+            <button class="action preview-action" id="linkLabPreviewBtn" type="button" disabled>Mở Safe Preview</button>
+            <p class="link-lab-limit">Safe Preview khóa JavaScript, form, popup và download; đây không phải máy ảo hay sandbox hệ điều hành.</p>
+          </div>
+        </article>
+
+        <section class="telemetry-section reveal" style="--delay:2" aria-labelledby="telemetryTitle">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">QUICK TELEMETRY</span>
+              <h2 id="telemetryTitle">Thông số lần quét</h2>
+            </div>
+            <span class="live-chip"><i></i> LIVE</span>
+          </div>
+          <div class="telemetry-grid">
+            <article class="telemetry-card age-metric">
+              <span class="metric-icon">⌛</span>
+              <span class="metric-label">Tuổi domain</span>
+              <b id="age">—</b>
+              <small>Dữ liệu đăng ký</small>
+            </article>
+            <article class="telemetry-card redirect-metric">
+              <span class="metric-icon">↗</span>
+              <span class="metric-label">Chuyển hướng</span>
+              <b id="redirectStatus">—</b>
+              <small>Chuỗi điều hướng</small>
+            </article>
+            <article class="telemetry-card ml-raw-metric">
+              <span class="metric-icon">∿</span>
+              <span class="metric-label">Độ bất thường URL</span>
+              <b id="mlProbability">—</b>
+              <small>Chỉ dùng tham khảo</small>
+            </article>
+            <article class="telemetry-card ml-applied-metric">
+              <span class="metric-icon">∆</span>
+              <span class="metric-label">ML áp dụng</span>
+              <b id="mlApplied">—</b>
+              <small>Sau hiệu chỉnh hybrid</small>
+            </article>
+          </div>
+        </section>
+
+        <article class="card signal-card reveal" style="--delay:3">
+          <div class="section-heading compact">
+            <div><span class="eyebrow">IDENTITY &amp; NETWORK</span><h2>Danh tính kỹ thuật</h2></div>
+            <span class="signal-node" aria-hidden="true"></span>
+          </div>
+          <div class="identity-grid">
+            <div class="datum datum-wide"><span>Ngữ cảnh &amp; nhận diện</span><b id="identityStatus">—</b></div>
+            <div class="datum datum-wide"><span>Domain đăng ký</span><b id="registrableDomain">—</b></div>
+            <div class="datum"><span>Public suffix</span><b id="publicSuffix">—</b></div>
+            <div class="datum"><span>RDAP</span><b id="rdapStatus">—</b></div>
+            <div class="datum datum-wide"><span>Threat Intelligence</span><b id="threatStatus">—</b></div>
+            <div class="datum"><span>Danh sách</span><b id="listStatus">—</b></div>
+            <div class="datum"><span>Hạn chế</span><b id="strictStatus">—</b></div>
+          </div>
+          <div class="chips flag-row" id="flagRow"></div>
+        </article>
+
+        <article class="card coverage-card reveal" style="--delay:4">
+          <div class="topline coverage-topline">
+            <div>
+              <span class="eyebrow">EVIDENCE COVERAGE</span>
+              <h2>Phạm vi bằng chứng</h2>
+            </div>
+            <span class="pill suspicious" id="coverageBadge">—</span>
+          </div>
+          <p class="coverage-summary" id="coverageSummary">Đang tổng hợp các lớp đã kiểm tra.</p>
+          <div class="coverage-metrics">
+            <div><span>Risk</span><b id="coverageRiskState">—</b></div>
+            <div><span>Chất lượng bằng chứng</span><b id="coverageEvidenceScore">—</b></div>
+          </div>
+          <div class="coverage-grid">
+            <section><h3>✓ Đã kiểm tra</h3><ul id="coverageChecked"></ul></section>
+            <section><h3>△ Còn thiếu / tùy chọn</h3><ul id="coverageMissing"></ul></section>
+          </div>
+          <div class="coverage-action"><span>HÀNH ĐỘNG TIẾP THEO</span><p id="coverageAction">—</p></div>
+        </article>
+
+        <div class="analysis-grid reveal" style="--delay:5">
+          <article class="card engine-card">
+            <div class="section-heading compact">
+              <div><span class="eyebrow">DETECTION ENGINE</span><h2>Mô hình phân tích</h2></div>
+              <span class="engine-wave" aria-hidden="true">∿</span>
+            </div>
+            <div class="engine-status">
+              <div><span>Risk Engine</span><b id="modelVersion">—</b></div>
+              <div><span>URL ML model</span><b id="mlStatus">—</b></div>
+              <div><span>Ngưỡng hybrid</span><b><span id="modelThreshold">—</span>/100</b></div>
+            </div>
+          </article>
+
+          <article class="card breakdown-card">
+            <div class="section-heading compact">
+              <div><span class="eyebrow">SIGNAL LAYERS</span><h2>Phân rã điểm</h2></div>
+            </div>
+            <div class="breakdown" id="breakdown"></div>
+          </article>
+        </div>
+
+        <div class="insight-grid reveal" style="--delay:6">
+          <article class="card insight-card reason-card">
+            <div class="insight-title"><span>01</span><h2>Tín hiệu quan sát</h2></div>
+            <ul id="reasons"></ul>
+          </article>
+          <article class="card insight-card recommendation-card">
+            <div class="insight-title"><span>02</span><h2>Hành động đề xuất</h2></div>
+            <ul id="recommendations"></ul>
+          </article>
+        </div>
+
+        <article class="card action-console reveal" style="--delay:7">
+          <div class="section-heading compact">
+            <div><span class="eyebrow">RESPONSE CONSOLE</span><h2>Thao tác bảo vệ</h2></div>
+          </div>
+          <div class="actions primary-actions">
+            <button class="action primary" id="recheckBtn">↻ Quét lại</button>
+            <button class="action" id="strictBtn">Chế độ hạn chế</button>
+            <button class="action" id="trustBtn">Tin tưởng</button>
+            <button class="action danger" id="reportBtn">Báo cáo xấu</button>
+            <button class="action" id="falsePositiveBtn">Báo nhầm (cục bộ)</button>
+            <button class="action" id="copyDebugBtn">Sao chép chẩn đoán</button>
+            <button class="action" id="exportDebugBtn">Xuất JSON</button>
+          </div>
+        </article>
+
+        <article class="card content-card reveal" id="contentSafetyCard" style="--delay:8">
+          <div class="topline">
+            <div>
+              <span class="eyebrow content-eyebrow">CONTENT LAYER</span>
+              <h2 class="content-title">An toàn nội dung &amp; chỉ báo pháp lý</h2>
+            </div>
+            <span class="pill safe" id="contentSafetyBadge">—</span>
+          </div>
+          <div class="content-metrics">
+            <div class="content-score-block">
+              <span>CONTENT SCORE</span>
+              <b class="content-score" id="contentSafetyScore">—</b>
+              <div class="track"><div class="fill" id="contentSafetyFill"></div></div>
+            </div>
+            <div class="content-availability"><span>Trạng thái phân tích</span><b id="contentSafetyAvailability">—</b></div>
+          </div>
+          <div class="section-title">Danh mục phát hiện</div>
+          <div class="chips" id="contentCategoryChips"></div>
+          <div class="content-insights">
+            <div><div class="section-title">Tín hiệu nội dung</div><ul id="contentSafetyReasons"></ul></div>
+            <div><div class="section-title">Khuyến nghị</div><ul id="contentSafetyRecommendations"></ul></div>
+          </div>
+          <div class="legal-note" id="contentSafetyDisclaimer">Chỉ báo kỹ thuật, không phải kết luận pháp lý.</div>
+        </article>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="view-intro"><span class="eyebrow">EVENT TIMELINE</span><h1>Lịch sử cảnh báo</h1><p>Tối đa 100 sự kiện gần nhất được lưu cục bộ trên thiết bị.</p></div>
+        <div class="history-list" id="historyList"></div>
+        <div class="actions"><button class="action" id="exportCsvBtn">Xuất CSV</button><button class="action danger" id="clearHistoryBtn">Xóa lịch sử</button></div>
+      </section>
+
+      <section class="view" id="view-stats">
+        <div class="view-intro"><span class="eyebrow">LOCAL OBSERVATORY</span><h1>Thông số bảo vệ</h1><p>Số liệu vận hành được tổng hợp cục bộ, không gửi ra ngoài.</p></div>
+        <div class="stat-grid" id="statsGrid"></div>
+        <article class="card system-health-card">
+          <div class="section-heading compact"><div><span class="eyebrow">PIPELINE HEALTH</span><h2>Hiệu suất phân tích</h2></div><span class="live-chip"><i></i> LOCAL</span></div>
+          <div class="health-grid">
+            <div class="row"><span>RDAP có dữ liệu</span><b id="rdapRate">—</b></div>
+            <div class="row"><span>RDAP cache hit</span><b id="rdapCacheRate">—</b></div>
+            <div class="row"><span>Kết quả cache hit</span><b id="resultCacheRate">—</b></div>
+            <div class="row"><span>Quét do trang đổi</span><b id="dynamicScans">—</b></div>
+            <div class="row"><span>Thời gian quét trung bình</span><b id="scanAverage">—</b></div>
+            <div class="row"><span>Thời gian quét p95</span><b id="scanP95">—</b></div>
+            <div class="row row-wide"><span>Lần quét cuối</span><b id="lastScan">—</b></div>
+          </div>
+        </article>
+        <div class="actions"><button class="action" id="clearCacheBtn">Xóa cache</button><button class="action danger" id="clearStatsBtn">Xóa thống kê</button></div>
+      </section>
+
+      <section class="view" id="view-audit">
+        <div class="view-intro"><span class="eyebrow">PERMISSION RADAR</span><h1>Kiểm tra tiện ích</h1><p>Phân tích mức quyền của các tiện ích khác; không tự kết luận malware.</p></div>
+        <article class="card audit-launcher">
+          <div class="audit-visual" aria-hidden="true"><span></span></div>
+          <div><b>Quét quyền nhạy cảm</b><p class="small">Quyền management chỉ được xin khi bạn chủ động bắt đầu quét.</p></div>
+          <div class="actions"><button class="action primary" id="auditBtn">Quét tiện ích đã cài</button><button class="action" id="openExtensionsBtn">Mở trang quản lý</button></div>
+        </article>
+        <div class="audit-list" id="auditList"><div class="empty">Chưa quét.</div></div>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="view-intro"><span class="eyebrow">CONTROL PLANE</span><h1>Cài đặt bảo vệ</h1><p>Tùy chỉnh lớp phân tích, quyền riêng tư và chế độ gia đình.</p></div>
+        <article class="card settings-card">
+          <div class="section-title">Lớp phát hiện</div>
+          <div class="setting"><div><b>Phân tích hành vi trang</b><small>Theo dõi form, iframe, script và nội dung chèn muộn.</small></div><button class="switch" data-setting="analyzePage" aria-label="Phân tích hành vi trang"></button></div>
+          <div class="setting"><div><b>Theo dõi chuyển hướng</b><small>Ghi nhận server/client redirect và đổi domain.</small></div><button class="switch" data-setting="redirectAnalysis" aria-label="Theo dõi chuyển hướng"></button></div>
+          <div class="setting"><div><b>Chặn blacklist trước khi tải</b><small>Dùng DNR cho domain đã được xác nhận.</small></div><button class="switch" data-setting="autoBlockConfirmed" aria-label="Chặn blacklist trước khi tải"></button></div>
+          <div class="setting"><div><b>URL ML v5 · Feature v4</b><small>Logistic Regression, tracking normalization và hard-negative training.</small></div><button class="switch" data-setting="urlModelEnabled" aria-label="Mô hình URL ML"></button></div>
+          <div class="setting"><div><b>Phân tích an toàn nội dung</b><small>Nhận diện cờ bạc, nội dung người lớn, malware và dữ liệu nhạy cảm.</small></div><button class="switch" data-setting="contentSafetyEnabled" aria-label="Phân tích an toàn nội dung"></button></div>
+          <div class="setting"><div><b>Hiện cảnh báo nội dung trên trang</b><small>Tách riêng khỏi điểm phishing và không tự kết luận pháp lý.</small></div><button class="switch" data-setting="showContentSafetyWarnings" aria-label="Hiện cảnh báo nội dung"></button></div>
+          <div class="setting"><div><b>Lưu lịch sử cảnh báo</b><small>Chỉ lưu website mức vàng và đỏ.</small></div><button class="switch" data-setting="saveHistory" aria-label="Lưu lịch sử cảnh báo"></button></div>
+          <div class="setting"><div><b>Hiện banner xanh</b><small>Trang an toàn mặc định chỉ hiện badge.</small></div><button class="switch" data-setting="showSafeBanner" aria-label="Hiện banner xanh"></button></div>
+          <div class="setting"><div><b>Hiện trạng thái trên trang tìm kiếm phổ biến</b><small>Mặc định ẩn khi an toàn; cảnh báo rủi ro vẫn luôn hiện.</small></div><button class="switch" data-setting="showSearchEnginePageUi" aria-label="Hiện trạng thái trên trang tìm kiếm phổ biến"></button></div>
+          <div class="setting"><div><b>Threat Intelligence backend</b><small>Gọi endpoint HTTPS do bạn quản lý. Mặc định tắt.</small></div><button class="switch" data-setting="threatIntelEnabled" aria-label="Threat Intelligence backend"></button></div>
+          <input class="field" id="threatIntelEndpoint" placeholder="https://api.example.com/check-url">
+          <button class="action full-action" id="saveThreatEndpointBtn">Lưu endpoint</button>
+        </article>
+
+        <article class="card settings-card">
+          <label class="section-title" for="uiProfileSelect">Giao diện mặc định</label>
+          <select class="field" id="uiProfileSelect">
+            <option value="simple">Đơn giản — dành cho người dùng phổ thông</option>
+            <option value="technical">Kỹ thuật — hiển thị toàn bộ tín hiệu</option>
+          </select>
+          <p class="small settings-note">Cả hai giao diện dùng chung một kết quả phân tích; chế độ đơn giản chỉ lược bớt thuật ngữ.</p>
+        </article>
+
+        <article class="card settings-card language-settings-card">
+          <label class="section-title" for="uiLanguageSelect">Ngôn ngữ giao diện / Interface language</label>
+          <select class="field" id="uiLanguageSelect">
+            <option value="vi">Tiếng Việt</option>
+            <option value="en">English</option>
+          </select>
+          <p class="small settings-note">Đổi ngôn ngữ chỉ thay đổi cách hiển thị; dữ liệu quét và mức cảnh báo được giữ nguyên.</p>
+        </article>
+
+        <article class="card settings-card">
+          <div class="section-title">Gia đình</div>
+          <div class="setting"><div><b>Chế độ trẻ em</b><small>Chặn toàn màn hình với nội dung nhạy cảm và khóa thao tác bằng PIN.</small></div><button class="switch" id="childModeSwitch" aria-label="Chế độ trẻ em"></button></div>
+          <div class="setting"><div><b>Phải quét nội dung trước khi báo an toàn</b><small>Không hiển thị màu xanh khi content script chưa gửi dữ liệu.</small></div><button class="switch" data-setting="childRequireContentScan" aria-label="Yêu cầu quét nội dung"></button></div>
+          <div class="setting"><div><b>Tự đọc cảnh báo</b><small>Đọc hướng dẫn bằng tiếng Việt khi trang bị chặn.</small></div><button class="switch" data-setting="childAutoSpeak" aria-label="Tự đọc cảnh báo"></button></div>
+          <div class="setting"><div><b>Hiện banner đã kiểm tra</b><small>Hiển thị thông báo xanh sau khi đã quét trang.</small></div><button class="switch" data-setting="childSafeBanner" aria-label="Hiện banner đã kiểm tra"></button></div>
+          <label class="section-title" for="childProtectionLevel">Mức bảo vệ trẻ em</label>
+          <select class="field" id="childProtectionLevel">
+            <option value="strict">Nghiêm ngặt — chặn từ mức cần lưu ý</option>
+            <option value="standard">Tiêu chuẩn — chặn cảnh báo/vượt ngưỡng</option>
+          </select>
+          <p class="small settings-note">Dịch vụ tình dục, nội dung người lớn, cờ bạc, malware, danh tính giả và thu thập dữ liệu nhạy cảm luôn yêu cầu người lớn xác nhận.</p>
+          <p class="small" id="parentStateText">—</p>
+          <div class="actions"><button class="action" id="changePinBtn">Tạo/đổi PIN</button><button class="action" id="lockParentBtn">Khóa ngay</button><button class="action danger" id="removePinBtn">Xóa PIN</button></div>
+        </article>
+
+        <article class="card list-manager">
+          <div class="section-title">Whitelist tùy chỉnh</div>
+          <div class="list-chips" id="whitelistChips"></div>
+          <div class="input-row"><input id="whitelistInput" placeholder="vidu.com"><button id="whitelistAddBtn">Thêm</button></div>
+          <div class="section-title list-title">Blacklist tùy chỉnh</div>
+          <div class="list-chips" id="blacklistChips"></div>
+          <div class="input-row"><input id="blacklistInput" placeholder="domain-xau.xyz"><button id="blacklistAddBtn">Thêm</button></div>
+        </article>
+      </section>
+    </main>
+
+    <footer><span>v2.7.5 · verified game top-up protection</span><span>Phân tích cục bộ</span></footer>
+  </section>
+
+  <div class="modal hidden" id="pinModal">
+    <div class="modal-card">
+      <div class="modal-lock" aria-hidden="true">⌁</div>
+      <span class="eyebrow">PARENT ACCESS</span>
+      <h2 id="pinTitle">Dành cho người lớn</h2>
+      <p id="pinDescription">Nhập PIN.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="8" placeholder="PIN">
+      <input id="pinConfirmInput" type="password" inputmode="numeric" maxlength="8" placeholder="Nhập lại PIN">
+      <p class="error" id="pinError"></p>
+      <div class="actions"><button class="action" id="pinCancelBtn">Hủy</button><button class="action primary" id="pinSubmitBtn">Xác nhận</button></div>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

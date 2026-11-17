@@ -1,0 +1,5 @@
+DNS Phishing Guard v2.7.5 release archives
+runtime  65F2DD66B5EB0FFC0DBAF0DB06B520490EBE8367D8E7A5E5BF5EC34DF586A2FA  D:\WORK\prj\dns-phishing-guard-v2.7.5-runtime.zip
+store    39FBDA3860BBC2BCE0FEE344A70EB1BB68A559823BC5A6325A3344B6CE027176  D:\WORK\prj\dns-phishing-guard-v2.7.5-store.zip
+manifest runtime/store: 2.7.5
+created: 2026-08-17T18:31:47.1533374+07:00

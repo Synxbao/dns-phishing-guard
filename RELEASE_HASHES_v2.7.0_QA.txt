@@ -1,0 +1,11 @@
+DNS Phishing Guard v2.7.0 - Offline adversarial QA package
+Generated: 2026-08-10 (Asia/Saigon)
+
+dns-phishing-guard-v2.7.0-runtime-qa.zip
+Size: 1903618 bytes
+SHA256: E4FA8CA712B69EA250CA25916D2CAE5757525BEF30359F81E10F2E78C2B97121
+
+Store package is unchanged because browser runtime code was not modified:
+dns-phishing-guard-v2.7.0-store.zip
+Size: 233542 bytes
+SHA256: DBEBB6F27E2604FDB73F786D989BBE3C9CE63AAC7A2890292C9B555CC57F3D92

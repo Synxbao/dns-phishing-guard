@@ -1,0 +1,5 @@
+Public Suffix List
+Source: https://publicsuffix.org/list/public_suffix_list.dat
+Bundled on: 2026-07-13
+Version in bundled file: 2026-07-09_11-59-23_UTC
+License: Mozilla Public License 2.0 (see header in public_suffix_list.dat)

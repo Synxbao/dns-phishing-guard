@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "name": "DNS Phishing Guard",
+  "version": "2.7.5",
+  "description": "Cảnh báo phishing và giả mạo cổng nạp game bằng rule thương hiệu xác minh, typosquat, tín hiệu giao dịch và URL ML cục bộ.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "webNavigation",
+    "declarativeNetRequest"
+  ],
+  "optional_permissions": [
+    "management"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://rdap.org/*",
+    "https://rdap.verisign.com/*",
+    "https://rdap.markmonitor.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src http: https:"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "modules/page-signal-filter.js",
+        "modules/payment-signals.js",
+        "modules/brand-rules.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DNS Phishing Guard"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html",
+        "blocked.js",
+        "blocked.css",
+        "data/brand-rules.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

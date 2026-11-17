@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "purpose": "runtime-brand-identity-and-commerce-rules",
+  "trustAllowlist": false,
+  "snapshotDate": "2026-08-11",
+  "officialClaimTerms": [
+    "chính thức",
+    "đối tác chính thức",
+    "đối tác được ủy quyền",
+    "nhà phát hành chính thức",
+    "cổng nạp chính thức",
+    "official",
+    "official partner",
+    "authorized partner",
+    "authorized reseller"
+  ],
+  "sources": [
+    {
+      "id": "garena-corporate-vn",
+      "publisher": "Garena Việt Nam",
+      "reference": "Trang giới thiệu doanh nghiệp và nền tảng Garena tại Việt Nam",
+      "url": "https://www.garena.vn/"
+    },
+    {
+      "id": "garena-topup-guidance",
+      "publisher": "Garena Delta Force Việt Nam",
+      "reference": "Hướng dẫn nạp thẻ, nêu rõ Garena chỉ có duy nhất trang napthe.vn",
+      "url": "https://deltaforce.garena.vn/news/huong-dan-chung/huong-dan-nap-the-garena-delta-force"
+    },
+    {
+      "id": "garena-free-fire",
+      "publisher": "Garena International",
+      "reference": "Trang chính thức Garena Free Fire",
+      "url": "https://ff.garena.com/en"
+    },
+    {
+      "id": "garena-lien-quan",
+      "publisher": "Garena Việt Nam",
+      "reference": "Trang chính thức Liên Quân Mobile",
+      "url": "https://lienquan.garena.vn/"
+    },
+    {
+      "id": "garena-fc-online",
+      "publisher": "Garena Việt Nam",
+      "reference": "Trang chính thức FC Online Việt Nam",
+      "url": "https://fconline.garena.vn/"
+    },
+    {
+      "id": "garena-fc-mobile",
+      "publisher": "Garena Việt Nam",
+      "reference": "EA SPORTS FC Mobile Vietnam - Garena Official Site",
+      "url": "https://fcmobile.garena.vn/"
+    },
+    {
+      "id": "vnggames-shop-terms",
+      "publisher": "Công ty Cổ phần VNG",
+      "reference": "Điều khoản xác nhận shop.vnggames.com là website của VNG và cung cấp các gói nạp",
+      "url": "https://shop.vnggames.com/vn/terms-of-service"
+    },
+    {
+      "id": "vng-zing-pay",
+      "publisher": "VNGGames",
+      "reference": "Cổng pay.zing.vn chuyển đến VNGGames Shop và cung cấp luồng nạp game chính thức",
+      "url": "https://pay.zing.vn/"
+    },
+    {
+      "id": "vtcgame-topup",
+      "publisher": "VTC Game / VTC Intecom",
+      "reference": "Cổng nạp thẻ chính thức các game của VTC",
+      "url": "https://napthe.vtcgame.vn/"
+    }
+  ],
+  "rules": [
+    {
+      "id": "google",
+      "name": "Google",
+      "vertical": "general",
+      "terms": ["google", "gmail"],
+      "domains": ["google.com", "gmail.com"]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "vertical": "general",
+      "terms": ["microsoft", "outlook", "office 365"],
+      "domains": ["microsoft.com", "live.com", "outlook.com", "office.com"]
+    },
+    {
+      "id": "paypal",
+      "name": "PayPal",
+      "vertical": "payment",
+      "terms": ["paypal"],
+      "domains": ["paypal.com"]
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "vertical": "general",
+      "terms": ["facebook", "meta login"],
+      "domains": ["facebook.com", "meta.com"]
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "vertical": "general",
+      "terms": ["apple id", "icloud"],
+      "domains": ["apple.com", "icloud.com"]
+    },
+    {
+      "id": "vietcombank",
+      "name": "Vietcombank",
+      "vertical": "banking",
+      "terms": ["vietcombank"],
+      "domains": ["vietcombank.com.vn"]
+    },
+    {
+      "id": "techcombank",
+      "name": "Techcombank",
+      "vertical": "banking",
+      "terms": ["techcombank"],
+      "domains": ["techcombank.com.vn"]
+    },
+    {
+      "id": "bidv",
+      "name": "BIDV",
+      "vertical": "banking",
+      "terms": ["bidv"],
+      "domains": ["bidv.com.vn"]
+    },
+    {
+      "id": "momo",
+      "name": "MoMo",
+      "vertical": "payment",
+      "terms": ["ví momo", "momo"],
+      "domains": ["momo.vn"]
+    },
+    {
+      "id": "garena-vn",
+      "name": "Garena",
+      "vertical": "game-publisher",
+      "minimumRepeatedMentions": 2,
+      "terms": [
+        "garena",
+        "free fire",
+        "liên quân",
+        "lien quan",
+        "arena of valor",
+        "fc online",
+        "fc mobile",
+        "garena sò",
+        "garena so",
+        "quân huy",
+        "quan huy"
+      ],
+      "domains": ["garena.vn", "garena.com", "napthe.vn"],
+      "sourceRefs": [
+        "garena-corporate-vn",
+        "garena-topup-guidance",
+        "garena-free-fire",
+        "garena-lien-quan",
+        "garena-fc-online",
+        "garena-fc-mobile"
+      ],
+      "verificationStatus": "verified"
+    },
+    {
+      "id": "vnggames-zing",
+      "name": "VNG Games / Zing",
+      "vertical": "game-publisher",
+      "minimumRepeatedMentions": 2,
+      "terms": [
+        "vng",
+        "vng games",
+        "vnggames",
+        "zing id",
+        "zingid",
+        "zing pay",
+        "zingpay",
+        "zing xu"
+      ],
+      "domains": ["vnggames.com", "zing.vn"],
+      "sourceRefs": ["vnggames-shop-terms", "vng-zing-pay"],
+      "verificationStatus": "verified"
+    },
+    {
+      "id": "vtcgame-vcoin",
+      "name": "VTC Game",
+      "vertical": "game-publisher",
+      "minimumRepeatedMentions": 2,
+      "terms": ["vtc game", "vtcgame", "vtc id", "vcoin"],
+      "domains": ["vtcgame.vn"],
+      "sourceRefs": ["vtcgame-topup"],
+      "verificationStatus": "verified"
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "vertical": "game-platform",
+      "terms": ["steam", "steam community"],
+      "domains": ["steampowered.com", "steamcommunity.com"]
+    },
+    {
+      "id": "roblox",
+      "name": "Roblox",
+      "vertical": "game-platform",
+      "terms": ["roblox", "robux"],
+      "domains": ["roblox.com"],
+      "authorizedDomains": ["vnggames.com"]
+    },
+    {
+      "id": "riot-games",
+      "name": "Riot Games",
+      "vertical": "game-publisher",
+      "terms": ["riot games", "league of legends", "valorant"],
+      "domains": ["riotgames.com", "leagueoflegends.com", "playvalorant.com"],
+      "authorizedDomains": ["vnggames.com"]
+    }
+  ],
+  "unresolved": [
+    {
+      "domain": "napthevn.vn",
+      "status": "not-trusted",
+      "reason": "Chỉ có báo cáo người dùng trong phạm vi bản vá này; không thêm vào allowlist hoặc blacklist khi chưa có nguồn độc lập đủ tin cậy. Regression dùng domain reserved napthevn.example.",
+      "reviewedAt": "2026-08-11"
+    }
+  ]
+}

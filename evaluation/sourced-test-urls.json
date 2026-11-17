@@ -1,0 +1,272 @@
+[
+  {
+    "id": "benign-threshold-below-new-pattern",
+    "url": "https://account-services.example/news/customer-service-alert?return_to=%2Fdashboard",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Benign support/article shape with suspicious lexical tokens and ML probability just below the packaged threshold.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-threshold-above-new-pattern",
+    "url": "https://client-support.example/signin/support?confirm=profile&alert=notice",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Benign support shape whose lexical ML score is above threshold; trusted-age cap should prevent an ML-only warning.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-mdn-authentication-guide",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Authentication/login-account-verify-password?redirect_uri=%2Fdocs&token=placeholder&security=guide",
+    "category": "benign",
+    "source": "local-known-domain-corpus",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Known benign documentation URL with login, verify, password, redirect and token vocabulary.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-dropbox-account-security",
+    "url": "https://www.dropbox.com/account/security/login?return_to=%2Faccount%2Fbilling&verify=email&token=placeholder",
+    "category": "benign",
+    "source": "local-known-domain-corpus",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Known benign account-security shape with nested return path and placeholder token.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-spotify-password-help",
+    "url": "https://support.spotify.com/us/account_payment_help/account_help/change-or-reset-password/?ref=help&confirm=account",
+    "category": "benign",
+    "source": "local-known-domain-corpus",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Known benign password/payment help path not present in the packaged complex-legit set.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-cloudflare-sso-guide",
+    "url": "https://www.cloudflare.com/learning/access-management/what-is-sso/?utm_source=security-guide&return_to=%2Flearning",
+    "category": "benign",
+    "source": "local-known-domain-corpus",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Known benign SSO article with tracking and return parameters.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "benign-fpt-student-return-url",
+    "url": "https://fap.fpt.edu.vn/Default.aspx?tab=account&returnUrl=%2FStudent.aspx%3Fview%3Dsecurity%26confirm%3Dprofile",
+    "category": "benign",
+    "source": "local-known-domain-corpus",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Official education portal shape with ASPX and a nested return URL.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "fake-oauth-untrusted-host",
+    "url": "https://accounts-login.example/o/oauth2/v2/auth?client_id=sample&redirect_uri=https%3A%2F%2Fclient.example%2Fcallback&response_type=code&scope=openid",
+    "category": "phishing",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "OAuth-shaped path on a host outside the identity-provider allowlist, paired with fabricated page-risk signals.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-service-login-safe-shape",
+    "url": "https://identity-bridge.example/ServiceLogin?continue=%2Fdashboard&scope=profile",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "ServiceLogin-shaped path on an untrusted host without independent malicious evidence; tests both allowlist strictness and false-positive control.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "public-host-internal-label",
+    "url": "https://api.internal-tools.example/v1/account/health?view=security",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Public hostname containing internal as a label without using a private suffix.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "public-host-local-label",
+    "url": "https://local-preview.example/docs/login-flow?ref=developer",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Public hostname containing local without ending in .local.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "public-host-dev-label",
+    "url": "https://dev-portal.example/internal/dashboard?account=demo",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Public hostname containing dev and an internal-looking path; public reputation layers must remain enabled.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "hybrid-compensates-ml-safe-brand-page",
+    "url": "https://customer-help.example/news/customer-service-alert?return_to=%2Fdashboard",
+    "category": "phishing",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "URL-only model can miss the pattern; fabricated brand mismatch and external password form should compensate.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "hybrid-compensates-ml-safe-redirect",
+    "url": "https://portal.example/help/article?ref=mail",
+    "category": "phishing",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Lexically benign final URL reached through a fabricated multi-domain redirect chain; network evidence should compensate.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  },
+  {
+    "id": "action-token-known-convention-control",
+    "url": "https://service.example/reset-password?token=PLACEHOLDER123",
+    "category": "benign",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Positive control for a reset-password/token convention already covered by Link Lab.",
+    "expectedVerdict": "AN_TOAN"
+  },
+  {
+    "id": "action-token-resume-session-gap",
+    "url": "https://service.example/resume-session?grant_ref=PLACEHOLDER123",
+    "category": "phishing",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "One-time access semantics expressed through resume-session/grant_ref, outside the current action-token regex.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  },
+  {
+    "id": "action-token-finalize-change-gap",
+    "url": "https://service.example/finalize-contact-change?proof_ref=PLACEHOLDER123",
+    "category": "phishing",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "One-time account-change semantics expressed through finalize/proof_ref, outside the current action-token regex.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  },
+  {
+    "id": "typosquat-steam-reserved-suffix",
+    "url": "https://steamcommunity.example/community/login",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Exact protected brand label moved to a non-risky reserved suffix.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "typosquat-paypal-digit-reserved-suffix",
+    "url": "https://paypa1.example/account/verify",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Single-character digit substitution on a non-risky reserved suffix.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "homoglyph-apple-reserved-suffix",
+    "url": "https://xn--pple-43d.example/account/verify",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Punycode/homoglyph pattern on a reserved suffix, without relying on RISKY_TLDS.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-game-topup-garena-official-claim",
+    "url": "https://napthee.example/app/32837/buy/0",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-11",
+    "rationale": "Extra-letter variant of the verified napthe.vn reference combined with a fabricated Garena official-partner claim and prepaid/game-ID inputs.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-payment-logo-zalopay-digit",
+    "url": "https://zal0pay.example/checkout",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "ZaloPay digit substitution with a fabricated but structurally valid payment-gateway integration signal.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-payment-logo-vietqr-extra-letter",
+    "url": "https://vietqrr.example/pay",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "VietQR extra-letter typo with fake VietQR/NAPAS checkout branding.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-payment-logo-vietcombank-wrong-suffix",
+    "url": "https://vietcombank.example/payment",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Exact Vietcombank brand label on the wrong suffix with fabricated VietQR/Visa/Mastercard logos.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-payment-logo-momo-digit",
+    "url": "https://m0mo.example/checkout",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "MoMo digit substitution with fabricated wallet and NAPAS integration signals.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "fake-payment-logo-zalopay-homoglyph",
+    "url": "https://xn--zlopay-3nf.example/checkout",
+    "category": "typosquat",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "ZaloPay Cyrillic homoglyph encoded as Punycode with fabricated ZaloPay/VietQR checkout signals.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "scam-commerce-vn-synonyms-established-gap",
+    "url": "https://rbx-helper.example/order",
+    "category": "scam-commerce",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Vietnamese abbreviations and slang for prepaid/game transactions on an established-age fixture.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  },
+  {
+    "id": "scam-commerce-vn-synonyms-new-domain-compensated",
+    "url": "https://rbx-fast-order.example/order",
+    "category": "scam-commerce",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Same Vietnamese semantic gap on a new-domain fixture to measure hybrid compensation.",
+    "expectedVerdict": "NGUY_HIEM"
+  },
+  {
+    "id": "game-commerce-vn-abbreviations-established-gap",
+    "url": "https://fps-stock.example/catalog",
+    "category": "scam-commerce",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Third-party game-account commerce described with acc clone, cọc, ib ad, ck cá nhân and chốt đơn.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  },
+  {
+    "id": "link-lab-clean-prefix-64k-gap",
+    "url": "https://long-prefix.example/preview",
+    "category": "malware",
+    "source": "manual-offline-reserved-pattern",
+    "snapshotDate": "2026-08-10",
+    "rationale": "Clean 64 KiB prefix followed by a fabricated password form, executable link and navigation signal after the inspection limit.",
+    "expectedVerdict": "CHUA_DU_DU_LIEU"
+  }
+]

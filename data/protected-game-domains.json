@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "purpose": "typosquat-reference-only",
+  "trustAllowlist": false,
+  "snapshotDate": "2026-08-11",
+  "sources": [
+    {
+      "id": "garena-topup-guidance",
+      "publisher": "Garena Delta Force Việt Nam",
+      "reference": "Garena chỉ có duy nhất trang napthe.vn",
+      "url": "https://deltaforce.garena.vn/news/huong-dan-chung/huong-dan-nap-the-garena-delta-force"
+    },
+    {
+      "id": "garena-corporate-vn",
+      "publisher": "Garena Việt Nam",
+      "reference": "Trang doanh nghiệp và nền tảng Garena Việt Nam",
+      "url": "https://www.garena.vn/"
+    },
+    {
+      "id": "vnggames-shop-terms",
+      "publisher": "Công ty Cổ phần VNG",
+      "reference": "shop.vnggames.com là website của VNG và cung cấp gói nạp",
+      "url": "https://shop.vnggames.com/vn/terms-of-service"
+    },
+    {
+      "id": "vng-zing-pay",
+      "publisher": "VNGGames",
+      "reference": "Cổng pay.zing.vn của VNGGames",
+      "url": "https://pay.zing.vn/"
+    },
+    {
+      "id": "vtcgame-topup",
+      "publisher": "VTC Game / VTC Intecom",
+      "reference": "Cổng nạp thẻ chính thức các game của VTC",
+      "url": "https://napthe.vtcgame.vn/"
+    }
+  ],
+  "entries": [
+    { "brand": "Garena top-up", "domain": "napthe.vn", "sourceRefs": ["garena-topup-guidance"] },
+    { "brand": "Garena", "domain": "garena.vn", "sourceRefs": ["garena-corporate-vn"] },
+    { "brand": "Garena International", "domain": "garena.com", "sourceRefs": ["garena-corporate-vn"] },
+    { "brand": "VNGGames", "domain": "vnggames.com", "sourceRefs": ["vnggames-shop-terms"] },
+    { "brand": "Zing / VNG Pay", "domain": "zing.vn", "sourceRefs": ["vng-zing-pay"] },
+    { "brand": "VTC Game", "domain": "vtcgame.vn", "sourceRefs": ["vtcgame-topup"] }
+  ]
+}

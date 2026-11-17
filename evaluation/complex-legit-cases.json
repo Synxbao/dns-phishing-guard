@@ -1,0 +1,180 @@
+[
+  {"id":"legit-tiktok-profile","url":"https://www.tiktok.com/@brainrotdepot1?_r=1&_t=ZS-98kQwnShntt","knownDomain":true,"ageDays":11000,"context":"PUBLIC_WEB"},
+  {"id":"legit-tiktok-video","url":"https://www.tiktok.com/@scout2015/video/6718335390845095173?lang=en&utm_source=copy","knownDomain":true,"ageDays":11000,"context":"PUBLIC_WEB"},
+  {"id":"legit-youtube-handle","url":"https://www.youtube.com/@OpenAI/videos?view=0&sort=dd&shelf_id=0","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-youtube-watch","url":"https://www.youtube.com/watch?v=dQw4w9WgXcQ&si=example123&feature=shared","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-instagram-post","url":"https://www.instagram.com/p/C8Example123/?igsh=example_tracking_value","knownDomain":true,"ageDays":7000,"context":"PUBLIC_WEB"},
+  {"id":"legit-x-status","url":"https://x.com/OpenAI/status/1823094818459341136?s=20&t=example","knownDomain":true,"ageDays":7000,"context":"PUBLIC_WEB"},
+  {"id":"legit-github-source","url":"https://github.com/openai/openai-python/blob/main/src/openai/resources/chat/completions/completions.py#L100","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-amazon-product","url":"https://www.amazon.com/dp/B0D1234567?ref_=ast_sto_dp&th=1&psc=1","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-shopee-product","url":"https://shopee.vn/product/123456789/9876543210?utm_campaign=share_product&utm_medium=seller","knownDomain":true,"ageDays":4000,"context":"PUBLIC_WEB"},
+  {"id":"legit-google-doc","url":"https://docs.google.com/document/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit?usp=sharing","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-google-maps","url":"https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=security+conference","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-wikipedia","url":"https://en.wikipedia.org/wiki/Uniform_Resource_Locator#Syntax","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-reddit-post","url":"https://www.reddit.com/r/cybersecurity/comments/1example/how_do_you_validate_suspicious_links/","knownDomain":false,"ageDays":7000,"context":"PUBLIC_WEB"},
+  {"id":"legit-notion-page","url":"https://www.notion.so/workspace/550e8400-e29b-41d4-a716-446655440000?pvs=4","knownDomain":false,"ageDays":5000,"context":"PUBLIC_WEB"},
+  {"id":"legit-stackoverflow-question","url":"https://stackoverflow.com/questions/12345678/how-to-parse-a-url-with-query-parameters-and-fragments","knownDomain":false,"ageDays":7000,"context":"PUBLIC_WEB"},
+  {"id":"legit-php-manual","url":"https://www.php.net/manual/en/function.filter-var.php?ref=manual","knownDomain":false,"ageDays":8000,"context":"PUBLIC_WEB"},
+  {"id":"legit-microsoft-product","url":"https://www.microsoft.com/vi-vn/microsoft-365?rtc=1&culture=vi-vn","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-bing-tracking","url":"https://www.bing.com/search?q=phishing+awareness&utm_source=training&cvid=demo123","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-search-google","url":"https://www.google.com/search?q=phishing+awareness","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-search-bing","url":"https://www.bing.com/search?q=cybersecurity+news","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-search-duckduckgo","url":"https://duckduckgo.com/?q=kiem+tra+link","knownDomain":true,"ageDays":5500,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-search-yahoo","url":"https://search.yahoo.com/search?p=security+awareness","knownDomain":true,"ageDays":10000,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-search-brave","url":"https://search.brave.com/search?q=phishing+prevention&source=web","knownDomain":true,"ageDays":10500,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-search-coccoc","url":"https://coccoc.com/search?query=an+toan+truc+tuyen","knownDomain":true,"ageDays":5000,"context":"PUBLIC_WEB","searchEngineHome":true},
+  {"id":"legit-oauth-google","url":"https://accounts.google.com/o/oauth2/v2/auth?client_id=demo.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Ffeid.fpt.edu.vn%2Fsignin-google&response_type=code&scope=openid%20email","knownDomain":true,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {"id":"legit-localhost-dashboard","url":"http://localhost:20128/dashboard/combos","knownDomain":false,"ageDays":null,"context":"LOCAL_DEVELOPMENT","expectMl":"NOT_APPLICABLE"},
+  {"id":"legit-loopback-api","url":"http://127.0.0.1:8080/api/v2/account/settings?tab=security","knownDomain":false,"ageDays":null,"context":"LOCAL_DEVELOPMENT","expectMl":"NOT_APPLICABLE"},
+  {"id":"legit-private-router","url":"http://192.168.1.1/admin/dashboard?tab=wifi","knownDomain":false,"ageDays":null,"context":"PRIVATE_NETWORK","expectMl":"NOT_APPLICABLE"},
+  {"id":"legit-private-dev-host","url":"http://api.internal.local/v1/dashboard/account?view=health","knownDomain":false,"ageDays":null,"context":"PRIVATE_NETWORK","expectMl":"NOT_APPLICABLE"},
+  {"id":"legit-http-example-docs","url":"http://example.com/docs/account-security/index.html?ref=guide","knownDomain":false,"ageDays":9000,"context":"PUBLIC_WEB"},
+  {
+    "id": "legit-official-game-topup-payment-flow",
+    "url": "https://publisher.example/",
+    "knownDomain": false,
+    "ageDays": 420,
+    "context": "PUBLIC_WEB",
+    "scenario": "Cửa hàng nạp game chính hãng giả lập có ZaloPay, VietQR, ngân hàng và thẻ quốc tế.",
+    "pageSignals": {
+      "paymentIntegration": {
+        "detected": true,
+        "confidence": "STRONG",
+        "score": 100,
+        "providers": [
+          {"id":"ZALOPAY","label":"ZaloPay","evidence":["logo-or-text","provider-resource-domain"]},
+          {"id":"VIETQR","label":"VietQR","evidence":["logo-or-text"]},
+          {"id":"VISA","label":"Visa","evidence":["logo-or-text"]},
+          {"id":"MASTERCARD","label":"Mastercard","evidence":["logo-or-text"]}
+        ],
+        "context": {
+          "paymentContext": true,
+          "interactiveControlCount": 6,
+          "hasPaymentAction": true,
+          "hasAmountOrCurrency": true
+        }
+      }
+    },
+    "expectedIdentityStatus": "MODERATELY_ESTABLISHED",
+    "expectedPaymentEvidenceEligible": true,
+    "expectedSafeDisplayState": "CONFIDENT",
+    "minimumEvidenceScore": 45
+  },
+  {
+    "id": "legit-bank-wallet-checkout-rdap-unavailable",
+    "url": "https://merchant.example/",
+    "knownDomain": false,
+    "context": "PUBLIC_WEB",
+    "scenario": "Luồng thanh toán ngân hàng/ví điện tử giả lập khi RDAP không trả tuổi domain.",
+    "pageSignals": {
+      "paymentIntegration": {
+        "detected": true,
+        "confidence": "STRONG",
+        "score": 96,
+        "providers": [
+          {"id":"VNPAY","label":"VNPay","evidence":["logo-or-text","provider-resource-domain"]},
+          {"id":"NAPAS","label":"NAPAS","evidence":["logo-or-text"]},
+          {"id":"MOMO","label":"MoMo","evidence":["logo-or-text"]}
+        ],
+        "context": {
+          "paymentContext": true,
+          "interactiveControlCount": 4,
+          "hasPaymentAction": true,
+          "hasAmountOrCurrency": true
+        }
+      }
+    },
+    "expectedIdentityStatus": "UNVERIFIED",
+    "expectedPaymentEvidenceEligible": true,
+    "expectedSafeDisplayState": "CONFIDENT",
+    "expectedEvidenceRiskState": "PROVISIONAL",
+    "minimumEvidenceScore": 45
+  },
+  {
+    "id": "paired-garena-topup-official",
+    "pairId": "garena-topup-official-vs-impostor",
+    "pairRole": "official",
+    "label": "SAFE",
+    "expectedVerdict": "SAFE",
+    "url": "https://napthe.vn/app/32837/buy/0",
+    "knownDomain": false,
+    "ageDays": 3000,
+    "context": "PUBLIC_WEB",
+    "scenario": "Cổng nạp Garena đã được xác minh từ trang do Garena sở hữu; nội dung và trường nhập giống fixture giả mạo.",
+    "pageSignals": {
+      "prepaidValueHitCount": 3,
+      "gameTopupHitCount": 4,
+      "unofficialCommerceHitCount": 0,
+      "promoClaimHitCount": 0,
+      "commerceActionCount": 2,
+      "prepaidCodeInputCount": 2,
+      "gameAccountInputCount": 1,
+      "commerceBrandMismatch": false,
+      "commerceBrandName": "Garena",
+      "officialClaim": true,
+      "officialClaimHitCount": 1,
+      "officialClaimMismatch": false,
+      "officialClaimBrandName": null,
+      "gameMarketplaceHitCount": 0,
+      "gameTransactionHitCount": 2,
+      "gameOffPlatformContactCount": 0,
+      "gameCommerceActionCount": 2,
+      "gameCommerceBrandMismatch": false,
+      "gameCommerceOfficialBrand": true,
+      "gameCommerceOfficialClaimMismatch": false,
+      "gameCommerceBrandName": "Garena",
+      "contentSamples": {
+        "scamCommerce": ["mã thẻ", "số seri", "nạp game", "id game"],
+        "gameCommerce": ["nạp tiền", "thanh toán"]
+      }
+    },
+    "expectedContentLevel": "NONE",
+    "expectedSafeDisplayState": "CONFIDENT",
+    "expectedEvidenceRiskState": "DETERMINED",
+    "minimumEvidenceScore": 45,
+    "expectedVerifiedBrandEvidenceEligible": true
+  },
+  {
+    "id": "paired-garena-topup-impostor",
+    "pairId": "garena-topup-official-vs-impostor",
+    "pairRole": "impostor",
+    "label": "PHISHING",
+    "expectedVerdict": "PHISHING",
+    "url": "https://napthevn.example/app/32837/buy/0",
+    "knownDomain": false,
+    "ageDays": 5,
+    "context": "PUBLIC_WEB",
+    "scenario": "Domain reserved gần giống napthe.vn, tự nhận đối tác chính thức Garena và thu ID game cùng mã thẻ.",
+    "pageSignals": {
+      "prepaidValueHitCount": 3,
+      "gameTopupHitCount": 4,
+      "unofficialCommerceHitCount": 0,
+      "promoClaimHitCount": 0,
+      "commerceActionCount": 2,
+      "prepaidCodeInputCount": 2,
+      "gameAccountInputCount": 1,
+      "commerceBrandMismatch": true,
+      "commerceBrandName": "Garena",
+      "officialClaim": true,
+      "officialClaimHitCount": 1,
+      "officialClaimMismatch": true,
+      "officialClaimBrandName": "Garena",
+      "gameMarketplaceHitCount": 0,
+      "gameTransactionHitCount": 2,
+      "gameOffPlatformContactCount": 0,
+      "gameCommerceActionCount": 2,
+      "gameCommerceBrandMismatch": true,
+      "gameCommerceOfficialBrand": false,
+      "gameCommerceOfficialClaimMismatch": true,
+      "gameCommerceBrandName": "Garena",
+      "contentSamples": {
+        "scamCommerce": ["mã thẻ", "số seri", "nạp game", "id game"],
+        "gameCommerce": ["nạp tiền", "thanh toán"]
+      }
+    },
+    "expectedContentLevel": "HIGH",
+    "expectedContentCategory": "SCAM_COMMERCE",
+    "minimumContentScore": 78,
+    "expectedVerifiedBrandEvidenceEligible": false
+  }
+]

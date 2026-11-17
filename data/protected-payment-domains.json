@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "purpose": "typosquat-reference-only",
+  "trustAllowlist": false,
+  "snapshotDate": "2026-08-10",
+  "sources": [
+    {
+      "id": "sbv-payment-intermediaries",
+      "publisher": "Ngân hàng Nhà nước Việt Nam",
+      "reference": "Danh sách tổ chức được cấp phép cung ứng dịch vụ trung gian thanh toán",
+      "url": "https://www.sbv.gov.vn/"
+    },
+    {
+      "id": "napas-official-network",
+      "publisher": "Công ty Cổ phần Thanh toán Quốc gia Việt Nam (NAPAS)",
+      "reference": "Hệ sinh thái NAPAS và tiêu chuẩn VietQR",
+      "url": "https://napas.com.vn/"
+    }
+  ],
+  "entries": [
+    { "brand": "ZaloPay", "domain": "zalopay.vn", "sourceRefs": ["sbv-payment-intermediaries"] },
+    { "brand": "MoMo", "domain": "momo.vn", "sourceRefs": ["sbv-payment-intermediaries"] },
+    { "brand": "VNPay", "domain": "vnpay.vn", "sourceRefs": ["sbv-payment-intermediaries"] },
+    { "brand": "VNPayment", "domain": "vnpayment.vn", "sourceRefs": ["sbv-payment-intermediaries"] },
+    { "brand": "NAPAS", "domain": "napas.com.vn", "sourceRefs": ["napas-official-network"] },
+    { "brand": "VietQR", "domain": "vietqr.vn", "sourceRefs": ["napas-official-network"] }
+  ]
+}

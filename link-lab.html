@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Link Lab · DNS Phishing Guard</title>
+  <link rel="stylesheet" href="link-lab.css">
+</head>
+<body>
+  <header class="lab-header">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><span></span></div>
+      <div><strong>DNS PHISHING GUARD</strong><small>LINK LAB · SAFE PREVIEW</small></div>
+    </div>
+    <button id="closeBtn" class="ghost">Đóng tab</button>
+  </header>
+
+  <main>
+    <section class="hero panel">
+      <div class="hero-copy">
+        <span class="eyebrow">PREFLIGHT COMPLETE</span>
+        <h1 id="resultTitle">Đang tải kết quả kiểm tra…</h1>
+        <p id="resultSummary">Link Lab đang đọc dữ liệu phiên cục bộ.</p>
+        <div class="url-line"><span>Đích cuối</span><strong id="finalUrl">—</strong></div>
+      </div>
+      <div class="risk-dial" id="riskDial" style="--score-angle:0deg;--tone:#37df8d">
+        <div><span>RISK</span><b id="riskScore">—</b><small>/100</small></div>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Thông số kiểm tra">
+      <article><span>Chất lượng bằng chứng</span><b id="confidence">—</b><small>Hybrid engine</small></article>
+      <article><span>Tuổi domain</span><b id="domainAge">—</b><small>RDAP</small></article>
+      <article><span>Chuyển hướng</span><b id="redirectCount">—</b><small>Tối đa 5 lần</small></article>
+      <article><span>Độ bất thường URL</span><b id="mlProbability">—</b><small>Không phải phán quyết</small></article>
+      <article><span>HTTP</span><b id="httpStatus">—</b><small id="contentType">—</small></article>
+      <article class="download-metric"><span>Tải tệp</span><b id="downloadRisk">—</b><small>Header + HTML đầu trang</small></article>
+    </section>
+
+    <section class="analysis-grid">
+      <article class="panel">
+        <div class="section-head"><div><span class="eyebrow">OBSERVATIONS</span><h2>Tín hiệu phát hiện</h2></div><span class="node"></span></div>
+        <ul id="riskReasons"></ul>
+      </article>
+      <article class="panel">
+        <div class="section-head"><div><span class="eyebrow">STATIC HTML</span><h2>Hành vi có thể có</h2></div><span class="node orange"></span></div>
+        <div class="signal-grid">
+          <div><span>Script</span><b id="scriptCount">—</b></div>
+          <div><span>Form</span><b id="formCount">—</b></div>
+          <div><span>Ô mật khẩu</span><b id="passwordCount">—</b></div>
+          <div><span>Iframe</span><b id="iframeCount">—</b></div>
+          <div><span>Link tải rủi ro</span><b id="downloadLinkCount">—</b></div>
+          <div><span>Tự chuyển/kích hoạt</span><b id="autoNavCount">—</b></div>
+        </div>
+        <ul id="downloadReasons" class="compact-list"></ul>
+      </article>
+    </section>
+
+    <section class="preview-section panel">
+      <div class="preview-copy">
+        <span class="eyebrow">ISOLATED VIEW</span>
+        <h2>Safe Preview</h2>
+        <p>Iframe không được chạy JavaScript, gửi form, mở popup hay tải tệp. Tab này còn chặn script, XHR, object, media và beacon bằng luật phiên.</p>
+      </div>
+      <div class="privacy-warning">
+        <strong>Lưu ý riêng tư</strong>
+        <span>Khi tải preview, trình duyệt vẫn phải kết nối tới website và có thể làm lộ địa chỉ IP. Một số trang sẽ từ chối hiển thị trong iframe.</span>
+      </div>
+      <div class="preview-actions">
+        <button id="loadPreviewBtn" class="primary">Tải Safe Preview</button>
+        <button id="openNormalBtn" class="secondary" disabled>Mở trong tab thường</button>
+        <button id="copyBtn" class="ghost">Sao chép báo cáo</button>
+      </div>
+      <p id="previewStatus" class="preview-status">Preview chưa được tải; chưa có kết nối bổ sung tới website.</p>
+      <div class="frame-shell">
+        <div class="frame-placeholder" id="framePlaceholder"><span>⌁</span><strong>SAFE PREVIEW OFFLINE</strong><small>Bấm “Tải Safe Preview” khi bạn muốn xem bản bị khóa tương tác.</small></div>
+        <iframe id="previewFrame" title="Bản xem trước an toàn" sandbox referrerpolicy="no-referrer" credentialless></iframe>
+      </div>
+    </section>
+
+    <section class="limits panel">
+      <span class="eyebrow">SCOPE &amp; LIMITS</span>
+      <h2>Link Lab đã làm gì?</h2>
+      <ul id="limitations"></ul>
+      <p>Đây là chỉ báo kỹ thuật, không phải bảo đảm an toàn tuyệt đối hay kết luận pháp lý. Không nhập thông tin nhạy cảm vào một website chỉ vì điểm thấp.</p>
+    </section>
+  </main>
+
+  <script type="module" src="link-lab.js"></script>
+</body>
+</html>
